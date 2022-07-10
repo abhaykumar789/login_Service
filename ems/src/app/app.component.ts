@@ -1,5 +1,4 @@
 import { Component, Inject } from '@angular/core';
-import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +10,13 @@ export class AppComponent {
   pwd: string = "";
   statusMessage: string = "";
 
-  constructor(private loginS: LoginService) {
-    console.log(this.loginS);
+  constructor() {
+    
     console.log("At the creation  time angular will inject the service")
   }
 
   loginValidation() {
-    if (this.loginS.checkUserNameAndPassword(this.uname, this.pwd) == true) {
+    if (this.uname=="admin" && this.pwd=="admin123") {
       this.statusMessage = "SUCESSFULLY LOGIN";
     } else {
       this.statusMessage = "INVALID USERNAME AND PASSWORD";
